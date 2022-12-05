@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, Image, StatusBar} from 'react-native';
 import {pxToDp} from '../../../utils/stylesKits';
 import {Input} from 'react-native-elements';
+import GradualButton from '../../../components/GradualButton';
 import validator from '../../../utils/validator';
 
 const Login = () => {
@@ -10,6 +11,10 @@ const Login = () => {
 
   const handlePhoneNumberChangeText = (changeVal: string) => {
     setPhoneNumber(changeVal);
+  };
+
+  const handleGetCode = () => {
+    console.log(1111);
   };
 
   const handleSubmit = () => {
@@ -51,7 +56,13 @@ const Login = () => {
             autoCompleteType={undefined}
           />
         </View>
-        <View></View>
+        <View style={{width: '85%', height: pxToDp(40), alignSelf: 'center'}}>
+          <GradualButton
+            style={{borderRadius: pxToDp(20)}}
+            onPress={handleGetCode}>
+            获取验证码
+          </GradualButton>
+        </View>
       </View>
     </View>
   );
